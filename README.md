@@ -178,3 +178,13 @@ Wrap the run command in your scheduler of choice:
 - The custom JSON reader loads all records into driver memory. For large datasets, use the native `spark.read.json()` on a proper Spark cluster.
 - The PyArrow writer runs on the driver — write throughput is limited to a single process. Use Spark's native `.parquet()` writer for distributed output on clusters.
 - The shutdown hook may log a `NoSuchFileException` error when cleaning Spark temp directories on Windows — this is harmless and does not affect output.
+
+
+
+## Output 
+
+| user_id | event_count | distinct_event_types | first_event_ts | last_event_ts | total_revenue |
+|----------|------------|---------------------|---------------------|---------------------|--------------|
+| u002 | 3 | 3 | 2024-01-15 14:40:00 | 2024-01-15 16:00:00 | 99.99 |
+| u001 | 4 | 3 | 2024-01-15 14:30:00 | 2024-01-15 15:45:00 | 79.98 |
+| u003 | 2 | 2 | 2024-01-15 15:00:00 | 2024-01-15 16:15:00 | 0.00 |
